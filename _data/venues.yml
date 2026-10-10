@@ -1,0 +1,26 @@
+# Logo shown beside each venue name in _data/entries.yml.
+# Venues not listed here show their name without a logo.
+#   logo:        path to a small square image
+#   invert_dark: true for dark marks on a transparent background
+
+Origin:
+  logo: assets/logos/origin.png
+Elastic Security Labs:
+  logo: assets/logos/elastic.svg
+Elastic Blog:
+  logo: assets/logos/elastic.svg
+Black Hat Asia:
+  logo: assets/logos/blackhat.png
+BSides Canberra:
+  logo: assets/logos/bsidescbr.png
+  invert_dark: true
+CSides Canberra:
+  logo: assets/logos/bsidescbr.png
+  invert_dark: true
+BSides Brisbane:
+  logo: assets/logos/bsidesbne.png
+AISA PerthSEC:
+  logo: assets/logos/aisa.jpg
+GitHub:
+  logo: assets/logos/github.svg
+  invert_dark: true

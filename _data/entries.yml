@@ -1,0 +1,139 @@
+# Talks, articles and projects shown on index.html, sorted newest first by `date` when
+# the page is built, so the order in this file doesn't matter.
+#
+#   date:    "YYYY-MM" or "YYYY-MM-DD" (keep the quotes)
+#   title:   shown as the heading
+#   venue:   publisher or conference; its logo comes from _data/venues.yml
+#   article: link to the original article        (optional)
+#   video:   link to the talk recording          (optional)
+#   pdf:     path to our archived copy within the conference_talks repo,
+#            served at /conference_talks/<pdf>  (optional)
+#   code:    list of repositories released with it (optional)
+#   blurb:   one or two sentences shown last
+
+- date: "2026-04-06"
+  title: Post Start Command-Line Substitution
+  venue: Origin
+  article: https://originhq.com/research/post-start-command-line-substitution
+  pdf: articles/2026-04_origin_post-start-command-line-substitution.pdf
+  blurb: A defender’s-eye view of Windows command-line spoofing, and the detection limitations.
+
+- date: "2026-02-17"
+  title: "Process Preluding: Child Process Injection Before the Story Begins"
+  venue: Origin
+  article: https://originhq.com/research/process-preluding
+  pdf: articles/2026-02_origin_process-preluding.pdf
+  blurb: Windows legacy APIs left a timing gap that EDRs must account for.
+
+- date: "2025-10-29"
+  title: Escaping Loader Locks with PostProcessInitRoutine
+  venue: Origin
+  article: https://originhq.com/research/escaping-loader-locks-with-postprocessinitroutine
+  pdf: articles/2025-10_origin_escaping-loader-locks-with-postprocessinitroutine.pdf
+  blurb: A legacy mechanism provides a simple way for some startup DLLs to execute free of loader lock restrictions.
+
+- date: "2025-06-12"
+  title: "Call Stacks: No More Free Passes For Malware"
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/threat-command/call-stacks-no-more-free-passes-for-malware
+  pdf: articles/2025-06_elastic_call-stacks-no-more-free-passes-for-malware.pdf
+  blurb: Why call stacks are vital Windows endpoint telemetry despite their architectural limitations.
+
+- date: "2025-05-15"
+  title: "Misbehaving Modalities: Detecting Tools, Not Techniques"
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/threat-command/misbehaving-modalities
+  pdf: articles/2025-05_elastic_misbehaving-modalities.pdf
+  blurb: How modality-focused detections can complement behaviour-focused ones.
+
+- date: "2024-10"
+  title: How to dissect cyber theatre and be deeply ~~technical~~ curious!
+  venue: AISA PerthSEC
+  pdf: 2024-10-perthsec-SecurityTheatre.pdf
+  blurb: "With Shana Uhlmann. Another dinner-time conversation: you can be technically correct and still wrong. Perhaps it is time to be curious instead."
+
+- date: "2024-09-13"
+  title: Kernel ETW is the best ETW
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/blog/kernel-etw-best-etw
+  pdf: articles/2024-09_elastic_kernel-etw-best-etw.pdf
+  blurb: Telemetry needs to be trusted.
+
+- date: "2024-07"
+  title: Kernel ETW is the best ETW
+  venue: BSides Brisbane
+  pdf: 2024-07-bsidesbne-KernelETW.pdf
+  code:
+    - https://github.com/jdu2600/API-To-ETW
+    - https://github.com/jdu2600/ETW-PPL-Tester
+  blurb: Understanding telemetry through tooling.
+
+- date: "2024-01-09"
+  title: "Doubling Down: Detecting In-Memory Threats with Kernel ETW Call Stacks"
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/threat-command/doubling-down-etw-callstacks
+  pdf: articles/2024-01_elastic_doubling-down-etw-callstacks.pdf
+  blurb: Bringing call stacks to Threat-Intelligence events. With detection rules by Samir Bousseaden.
+
+- date: "2023-10"
+  title: "Essential Eight Makeover: how to marry E8 with contemporary Australian threats"
+  venue: AISA PerthSEC
+  pdf: 2023-10-perthsec-EssentialEightMakeover.pdf
+  blurb: With Shana Uhlmann. A dinner-time conversation about how the Essential Eight stacks up against contemporary Australian compromises.
+
+- date: "2023-09"
+  title: GetInjectedThreadEx – improved heuristics for suspicious thread creations
+  venue: BSides Canberra
+  video: https://www.youtube.com/watch?v=9SqDY0wMmHE
+  pdf: 2023-09-bsidescbr-GetInjectedThreadEx.pdf
+  code:
+    - https://github.com/jdu2600/Get-InjectedThreadEx
+  blurb: An updated Get-InjectedThread tool to detect thread creation trampolines.
+
+- date: "2023-05-11"
+  title: A taxonomy of endpoint security detection bypasses
+  venue: Elastic Blog
+  article: https://elastic.co/blog/edr-bypass-taxonomy
+  pdf: articles/2023-05_elastic_edr-bypass-taxonomy.pdf
+  blurb: A feature-based taxonomy for endpoint security products, for more nuanced discussion of capability gaps.
+
+- date: "2023-05"
+  title: You Can Run, but You Can’t Hide – Finding the Footprints of Hidden Shellcode
+  venue: Black Hat Asia
+  video: https://www.youtube.com/watch?v=WpzVhCOcIAc
+  pdf: 2023-05-bhasia-HiddenShellcode.pdf
+  code:
+    - https://github.com/jdu2600/EtwTi-FluctuationMonitor
+    - https://github.com/jdu2600/CFG-FindHiddenShellcode
+    - https://github.com/jdu2600/Etw-SyscallMonitor
+  blurb: A defender’s perspective on Windows memory scanning.
+
+- date: "2023-03-29"
+  title: "Effective Parenting: detecting LRPC-based parent PID spoofing"
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/threat-command/effective-parenting-detecting-lrpc-based-parent-pid-spoofing
+  pdf: articles/2023-03_elastic_effective-parenting-detecting-parent-pid-spoofing.pdf
+  blurb: The evasion–detection arms race around breaking Windows process lineage.
+
+- date: "2022-12-07"
+  title: "Get-InjectedThreadEx: Detecting Thread Creation Trampolines"
+  venue: Elastic Security Labs
+  article: https://elastic.co/security-labs/threat-command/get-injectedthreadex-detection-thread-creation-trampolines
+  pdf: articles/2022-12_elastic_get-injectedthreadex-detecting-thread-creation-trampolines.pdf
+  code:
+    - https://github.com/jdu2600/Get-InjectedThreadEx/blob/main/Get-InjectedThreadEx.ps1
+  blurb: A PowerShell script to detect four classes of thread creation trampolines.
+
+- date: "2022-04"
+  title: Stack Walking on Windows
+  venue: CSides Canberra
+  pdf: 2022-04-csidescbr-StackWalking.pdf
+  blurb: The differences between x86 and x64 stack walking on Windows, and what they mean for security folks.
+
+- date: "2019-12-29"
+  title: Windows 10 ETW Events
+  venue: GitHub
+  code:
+    - https://jdu2600.github.io/Windows10EtwEvents
+    - https://github.com/jdu2600/Windows10EtwEvents
+  blurb: Events from all manifest-based and MOF-based ETW providers across Windows 10 versions.

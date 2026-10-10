@@ -1,0 +1,141 @@
+---
+# Built by GitHub Pages (Jekyll). Edit the content in _data/entries.yml and _data/venues.yml.
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talks, Articles &amp; Projects by John Uhlmann</title>
+<meta name="description" content="Conference talks, articles and projects by John Uhlmann on Windows internals, ETW, call stacks and endpoint detection.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #59636e;
+    --rule: #d1d9e0;
+    --link: #0969da;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #9198a1;
+      --rule: #3d444d;
+      --link: #4493f8;
+    }
+    .venue img.invert-dark { filter: invert(1); }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  }
+  a { color: var(--link); }
+  main { max-width: 52rem; margin: 0 auto; padding: 3rem 1rem 4rem; }
+  header { padding-bottom: 1.25rem; border-bottom: 1px solid var(--rule); }
+  header h1 { font-size: 1.75rem; font-weight: 600; margin: 0 0 .25rem; }
+  header p { margin: 0; color: var(--muted); }
+  ol { list-style: none; margin: 0; padding: 0; }
+  li {
+    display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--rule);
+  }
+  time {
+    color: var(--muted); font-size: .875rem; padding-top: .2rem;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  }
+  .title { font-weight: 600; font-size: 1.05rem; }
+  .summary { margin: .35rem 0 0; color: var(--muted); font-size: .925rem; }
+  .meta { margin: .15rem 0 0; font-size: .875rem; color: var(--muted); }
+  .venue img { width: 16px; height: 16px; margin-right: .35rem; vertical-align: -3px; border-radius: 3px; }
+  .meta a { text-decoration: none; }
+  .meta a:hover, .meta a:focus-visible { text-decoration: underline; }
+  .meta > * + *::before { content: "·"; margin: 0 .45rem; color: var(--muted); }
+  footer { margin-top: 2.5rem; color: var(--muted); font-size: .85rem; }
+  .social, .code { display: flex; flex-direction: column; align-items: flex-start; gap: .4rem; }
+  .code { margin: .3rem 0 0; gap: .15rem; font-size: .875rem; }
+  .social a, .code a { display: inline-flex; align-items: center; gap: .4rem; text-decoration: none; overflow-wrap: anywhere; }
+  .social a:hover, .social a:focus-visible, .code a:hover, .code a:focus-visible { text-decoration: underline; }
+  .stars { margin-left: .5rem; color: var(--muted); white-space: nowrap; }
+  .social svg, .code svg { width: 16px; height: 16px; fill: var(--fg); flex: none; }
+  @media (max-width: 34rem) {
+    li { grid-template-columns: 1fr; gap: .15rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Talks, Articles &amp; Projects by John Uhlmann</h1>
+  </header>
+
+  <ol>
+{%- assign entries = site.data.entries | sort: "date" | reverse %}
+{%- for e in entries %}
+{%- assign venue = site.data.venues[e.venue] %}
+    <li>
+      <time datetime="{{ e.date }}">{{ e.date | slice: 0, 7 }}</time>
+      <div>
+        {%- assign title_parts = e.title | escape | split: "~~" %}
+        <span class="title">{% for p in title_parts %}{% assign odd = forloop.index0 | modulo: 2 %}{% if odd == 1 %}<s>{{ p }}</s>{% else %}{{ p }}{% endif %}{% endfor %}</span>
+        <p class="meta">
+          <span class="venue">
+            {%- if venue.logo %}<img src="{{ venue.logo }}" alt="" width="16" height="16"{% if venue.invert_dark %} class="invert-dark"{% endif %}>{% endif -%}
+            {{ e.venue | escape -}}
+          </span>
+          {%- if e.article %}<a href="{{ e.article | escape }}">Article ↗</a>{% endif %}
+          {%- if e.video %}<a href="{{ e.video | escape }}">Video ↗</a>{% endif %}
+          {%- if e.pdf %}<a href="/conference_talks/{{ e.pdf | escape }}">PDF</a>{% endif %}
+        </p>
+        {%- if e.code %}
+        <p class="code">
+          {%- for c in e.code %}
+          {%- assign parts = c | split: "/" %}
+          <span><a href="{{ c | escape }}">{% if parts[2] == "github.com" %}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>{% else %}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg>{% endif %}{{ c | escape }}</a>
+            {%- if parts[2] == "github.com" %}<span class="stars" data-repo="{{ parts[3] | escape }}/{{ parts[4] | escape }}"></span>{% endif -%}
+          </span>
+          {%- endfor %}
+        </p>
+        {%- endif %}
+        {%- if e.blurb %}
+        <p class="summary">{{ e.blurb | escape }}</p>
+        {%- endif %}
+      </div>
+    </li>
+{%- endfor %}
+  </ol>
+
+  <footer>
+    <p class="social">
+      <a href="https://github.com/jdu2600"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>https://github.com/jdu2600</a>
+      <a href="https://linkedin.com/in/john-uhlmann/"><svg style="fill:#0a66c2" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>https://linkedin.com/in/john-uhlmann/</a>
+      <a href="https://twitter.com/jdu2600"><svg style="fill:#1da1f2" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>https://twitter.com/jdu2600</a>
+      <a href="https://bsky.app/profile/jdu2600.bsky.social"><svg style="fill:#1185fe" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg>https://bsky.app/profile/jdu2600.bsky.social</a>
+    </p>
+  </footer>
+</main>
+<script>
+  // Fill in live star counts; the page reads fine without them if GitHub's API is unreachable.
+  (async () => {
+    const els = [...document.querySelectorAll(".stars[data-repo]")];
+    const owners = [...new Set(els.map(el => el.dataset.repo.split("/")[0]))];
+    const stars = {};
+    for (const owner of owners) {
+      try {
+        const res = await fetch(`https://api.github.com/users/${owner}/repos?per_page=100`);
+        if (!res.ok) continue;
+        for (const repo of await res.json()) stars[repo.full_name.toLowerCase()] = repo.stargazers_count;
+      } catch {}  // offline or rate-limited: that owner's counts stay blank
+    }
+    for (const el of els) {
+      const n = stars[el.dataset.repo.toLowerCase()];
+      if (n !== undefined) el.textContent = `★ ${n}`;
+    }
+  })();
+</script>
+</body>
+</html>
