@@ -11,6 +11,15 @@
 #   code:    list of repositories released with it (optional)
 #   blurb:   one or two sentences shown last
 
+- date: "2026-11-09"
+  title: "Introducing etw-rs: an ETW parsing library built for flexibility and performance"
+  venue: Origin
+  article: https://originhq.com/research/introducing-etw-rs
+  pdf: articles/2026-11_origin_introducing-etw-rs.pdf
+  code:
+    - https://github.com/originsec/etw-rs
+  blurb: A Rust ETW library that stays close to the Win32 API, and is about 10x faster than existing Rust alternatives for most events.
+
 - date: "2026-04-06"
   title: Post Start Command-Line Substitution
   venue: Origin
